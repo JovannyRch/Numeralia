@@ -22,6 +22,7 @@ Partial Class pna
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.GroupBoxDatosPersonales = New System.Windows.Forms.GroupBox()
         Me.CmbBoxlugar = New System.Windows.Forms.ComboBox()
         Me.lugar = New System.Windows.Forms.Label()
@@ -61,7 +62,6 @@ Partial Class pna
         Me.lbl_edad = New System.Windows.Forms.Label()
         Me.PictureBoxchino = New System.Windows.Forms.PictureBox()
         Me.PictureBoxgriego = New System.Windows.Forms.PictureBox()
-        Me.Btnlimpiar = New System.Windows.Forms.Button()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.flor = New System.Windows.Forms.Label()
         Me.piedra = New System.Windows.Forms.Label()
@@ -78,6 +78,10 @@ Partial Class pna
         Me.Btnsalir = New System.Windows.Forms.Button()
         Me.lbl_fechactual = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.TextFechaActual = New System.Windows.Forms.TextBox()
+        Me.TextHoraActual = New System.Windows.Forms.TextBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.GroupBoxDatosPersonales.SuspendLayout()
         Me.GroupBoxResultados.SuspendLayout()
         CType(Me.PictureBoxchino, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -219,10 +223,10 @@ Partial Class pna
         '
         'Txtaño
         '
-        Me.Txtaño.Location = New System.Drawing.Point(485, 96)
+        Me.Txtaño.Location = New System.Drawing.Point(527, 95)
         Me.Txtaño.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Txtaño.Name = "Txtaño"
-        Me.Txtaño.Size = New System.Drawing.Size(48, 32)
+        Me.Txtaño.Size = New System.Drawing.Size(66, 32)
         Me.Txtaño.TabIndex = 12
         Me.Txtaño.Text = "1995"
         '
@@ -230,10 +234,10 @@ Partial Class pna
         '
         Me.CmbBoxmes.FormattingEnabled = True
         Me.CmbBoxmes.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"})
-        Me.CmbBoxmes.Location = New System.Drawing.Point(433, 96)
+        Me.CmbBoxmes.Location = New System.Drawing.Point(462, 96)
         Me.CmbBoxmes.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.CmbBoxmes.Name = "CmbBoxmes"
-        Me.CmbBoxmes.Size = New System.Drawing.Size(41, 31)
+        Me.CmbBoxmes.Size = New System.Drawing.Size(50, 31)
         Me.CmbBoxmes.TabIndex = 11
         Me.CmbBoxmes.Text = "04"
         '
@@ -244,14 +248,14 @@ Partial Class pna
         Me.CmbBoxdia.Location = New System.Drawing.Point(380, 96)
         Me.CmbBoxdia.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.CmbBoxdia.Name = "CmbBoxdia"
-        Me.CmbBoxdia.Size = New System.Drawing.Size(41, 31)
+        Me.CmbBoxdia.Size = New System.Drawing.Size(55, 31)
         Me.CmbBoxdia.TabIndex = 10
         Me.CmbBoxdia.Text = "29"
         '
         'aaaa
         '
         Me.aaaa.AutoSize = True
-        Me.aaaa.Location = New System.Drawing.Point(481, 71)
+        Me.aaaa.Location = New System.Drawing.Point(502, 71)
         Me.aaaa.Name = "aaaa"
         Me.aaaa.Size = New System.Drawing.Size(70, 23)
         Me.aaaa.TabIndex = 9
@@ -260,7 +264,7 @@ Partial Class pna
         'mm
         '
         Me.mm.AutoSize = True
-        Me.mm.Location = New System.Drawing.Point(437, 71)
+        Me.mm.Location = New System.Drawing.Point(458, 71)
         Me.mm.Name = "mm"
         Me.mm.Size = New System.Drawing.Size(46, 23)
         Me.mm.TabIndex = 8
@@ -342,11 +346,14 @@ Partial Class pna
         '
         'GroupBoxResultados
         '
+        Me.GroupBoxResultados.Controls.Add(Me.Button1)
         Me.GroupBoxResultados.Controls.Add(Me.lbl_chino)
         Me.GroupBoxResultados.Controls.Add(Me.lbl_griego)
         Me.GroupBoxResultados.Controls.Add(Me.lbl_numastral)
         Me.GroupBoxResultados.Controls.Add(Me.lbl_flor)
+        Me.GroupBoxResultados.Controls.Add(Me.Btnsalir)
         Me.GroupBoxResultados.Controls.Add(Me.lbl_piedra)
+        Me.GroupBoxResultados.Controls.Add(Me.Btnobtener)
         Me.GroupBoxResultados.Controls.Add(Me.lbl_metal)
         Me.GroupBoxResultados.Controls.Add(Me.lbl_elemento)
         Me.GroupBoxResultados.Controls.Add(Me.lbl_planeta)
@@ -356,7 +363,6 @@ Partial Class pna
         Me.GroupBoxResultados.Controls.Add(Me.lbl_edad)
         Me.GroupBoxResultados.Controls.Add(Me.PictureBoxchino)
         Me.GroupBoxResultados.Controls.Add(Me.PictureBoxgriego)
-        Me.GroupBoxResultados.Controls.Add(Me.Btnlimpiar)
         Me.GroupBoxResultados.Controls.Add(Me.Label23)
         Me.GroupBoxResultados.Controls.Add(Me.flor)
         Me.GroupBoxResultados.Controls.Add(Me.piedra)
@@ -374,7 +380,7 @@ Partial Class pna
         Me.GroupBoxResultados.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupBoxResultados.Name = "GroupBoxResultados"
         Me.GroupBoxResultados.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupBoxResultados.Size = New System.Drawing.Size(1316, 362)
+        Me.GroupBoxResultados.Size = New System.Drawing.Size(1316, 455)
         Me.GroupBoxResultados.TabIndex = 1
         Me.GroupBoxResultados.TabStop = False
         Me.GroupBoxResultados.Text = "RESULTADOS"
@@ -383,7 +389,7 @@ Partial Class pna
         '
         Me.lbl_chino.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.lbl_chino.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lbl_chino.Location = New System.Drawing.Point(181, 193)
+        Me.lbl_chino.Location = New System.Drawing.Point(174, 288)
         Me.lbl_chino.Name = "lbl_chino"
         Me.lbl_chino.Size = New System.Drawing.Size(127, 30)
         Me.lbl_chino.TabIndex = 61
@@ -392,7 +398,7 @@ Partial Class pna
         '
         Me.lbl_griego.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.lbl_griego.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lbl_griego.Location = New System.Drawing.Point(22, 193)
+        Me.lbl_griego.Location = New System.Drawing.Point(15, 288)
         Me.lbl_griego.Name = "lbl_griego"
         Me.lbl_griego.Size = New System.Drawing.Size(127, 30)
         Me.lbl_griego.TabIndex = 60
@@ -401,7 +407,7 @@ Partial Class pna
         '
         Me.lbl_numastral.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.lbl_numastral.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lbl_numastral.Location = New System.Drawing.Point(903, 273)
+        Me.lbl_numastral.Location = New System.Drawing.Point(896, 368)
         Me.lbl_numastral.Name = "lbl_numastral"
         Me.lbl_numastral.Size = New System.Drawing.Size(48, 49)
         Me.lbl_numastral.TabIndex = 59
@@ -410,7 +416,7 @@ Partial Class pna
         '
         Me.lbl_flor.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.lbl_flor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lbl_flor.Location = New System.Drawing.Point(800, 207)
+        Me.lbl_flor.Location = New System.Drawing.Point(793, 302)
         Me.lbl_flor.Name = "lbl_flor"
         Me.lbl_flor.Size = New System.Drawing.Size(150, 30)
         Me.lbl_flor.TabIndex = 58
@@ -419,7 +425,7 @@ Partial Class pna
         '
         Me.lbl_piedra.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.lbl_piedra.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lbl_piedra.Location = New System.Drawing.Point(616, 293)
+        Me.lbl_piedra.Location = New System.Drawing.Point(609, 388)
         Me.lbl_piedra.Name = "lbl_piedra"
         Me.lbl_piedra.Size = New System.Drawing.Size(150, 30)
         Me.lbl_piedra.TabIndex = 57
@@ -428,7 +434,7 @@ Partial Class pna
         '
         Me.lbl_metal.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.lbl_metal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lbl_metal.Location = New System.Drawing.Point(616, 207)
+        Me.lbl_metal.Location = New System.Drawing.Point(609, 302)
         Me.lbl_metal.Name = "lbl_metal"
         Me.lbl_metal.Size = New System.Drawing.Size(150, 30)
         Me.lbl_metal.TabIndex = 56
@@ -437,7 +443,7 @@ Partial Class pna
         '
         Me.lbl_elemento.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.lbl_elemento.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lbl_elemento.Location = New System.Drawing.Point(422, 293)
+        Me.lbl_elemento.Location = New System.Drawing.Point(415, 388)
         Me.lbl_elemento.Name = "lbl_elemento"
         Me.lbl_elemento.Size = New System.Drawing.Size(150, 30)
         Me.lbl_elemento.TabIndex = 55
@@ -446,7 +452,7 @@ Partial Class pna
         '
         Me.lbl_planeta.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.lbl_planeta.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lbl_planeta.Location = New System.Drawing.Point(422, 207)
+        Me.lbl_planeta.Location = New System.Drawing.Point(415, 302)
         Me.lbl_planeta.Name = "lbl_planeta"
         Me.lbl_planeta.Size = New System.Drawing.Size(150, 30)
         Me.lbl_planeta.TabIndex = 54
@@ -455,16 +461,16 @@ Partial Class pna
         '
         Me.lbl_gestacion.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.lbl_gestacion.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lbl_gestacion.Location = New System.Drawing.Point(939, 71)
+        Me.lbl_gestacion.Location = New System.Drawing.Point(174, 129)
         Me.lbl_gestacion.Name = "lbl_gestacion"
-        Me.lbl_gestacion.Size = New System.Drawing.Size(349, 30)
+        Me.lbl_gestacion.Size = New System.Drawing.Size(769, 30)
         Me.lbl_gestacion.TabIndex = 53
         '
         'lbl_rfc
         '
         Me.lbl_rfc.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.lbl_rfc.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lbl_rfc.Location = New System.Drawing.Point(481, 102)
+        Me.lbl_rfc.Location = New System.Drawing.Point(468, 209)
         Me.lbl_rfc.Name = "lbl_rfc"
         Me.lbl_rfc.Size = New System.Drawing.Size(286, 30)
         Me.lbl_rfc.TabIndex = 52
@@ -473,7 +479,7 @@ Partial Class pna
         '
         Me.lbl_curp.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.lbl_curp.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lbl_curp.Location = New System.Drawing.Point(105, 102)
+        Me.lbl_curp.Location = New System.Drawing.Point(92, 209)
         Me.lbl_curp.Name = "lbl_curp"
         Me.lbl_curp.Size = New System.Drawing.Size(309, 30)
         Me.lbl_curp.TabIndex = 51
@@ -484,12 +490,12 @@ Partial Class pna
         Me.lbl_edad.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lbl_edad.Location = New System.Drawing.Point(125, 46)
         Me.lbl_edad.Name = "lbl_edad"
-        Me.lbl_edad.Size = New System.Drawing.Size(644, 30)
+        Me.lbl_edad.Size = New System.Drawing.Size(818, 30)
         Me.lbl_edad.TabIndex = 50
         '
         'PictureBoxchino
         '
-        Me.PictureBoxchino.Location = New System.Drawing.Point(181, 233)
+        Me.PictureBoxchino.Location = New System.Drawing.Point(174, 328)
         Me.PictureBoxchino.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.PictureBoxchino.Name = "PictureBoxchino"
         Me.PictureBoxchino.Size = New System.Drawing.Size(126, 122)
@@ -498,30 +504,17 @@ Partial Class pna
         '
         'PictureBoxgriego
         '
-        Me.PictureBoxgriego.Location = New System.Drawing.Point(22, 233)
+        Me.PictureBoxgriego.Location = New System.Drawing.Point(15, 328)
         Me.PictureBoxgriego.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.PictureBoxgriego.Name = "PictureBoxgriego"
         Me.PictureBoxgriego.Size = New System.Drawing.Size(126, 122)
         Me.PictureBoxgriego.TabIndex = 48
         Me.PictureBoxgriego.TabStop = False
         '
-        'Btnlimpiar
-        '
-        Me.Btnlimpiar.BackColor = System.Drawing.SystemColors.Desktop
-        Me.Btnlimpiar.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btnlimpiar.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Btnlimpiar.Location = New System.Drawing.Point(1074, 171)
-        Me.Btnlimpiar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Btnlimpiar.Name = "Btnlimpiar"
-        Me.Btnlimpiar.Size = New System.Drawing.Size(129, 121)
-        Me.Btnlimpiar.TabIndex = 47
-        Me.Btnlimpiar.Text = "LIMPIAR" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Y" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SALIR"
-        Me.Btnlimpiar.UseVisualStyleBackColor = False
-        '
         'Label23
         '
         Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(797, 273)
+        Me.Label23.Location = New System.Drawing.Point(790, 368)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(95, 46)
         Me.Label23.TabIndex = 45
@@ -531,7 +524,7 @@ Partial Class pna
         'flor
         '
         Me.flor.AutoSize = True
-        Me.flor.Location = New System.Drawing.Point(797, 174)
+        Me.flor.Location = New System.Drawing.Point(790, 269)
         Me.flor.Name = "flor"
         Me.flor.Size = New System.Drawing.Size(58, 23)
         Me.flor.TabIndex = 43
@@ -540,7 +533,7 @@ Partial Class pna
         'piedra
         '
         Me.piedra.AutoSize = True
-        Me.piedra.Location = New System.Drawing.Point(614, 254)
+        Me.piedra.Location = New System.Drawing.Point(607, 349)
         Me.piedra.Name = "piedra"
         Me.piedra.Size = New System.Drawing.Size(78, 23)
         Me.piedra.TabIndex = 41
@@ -549,7 +542,7 @@ Partial Class pna
         'metal
         '
         Me.metal.AutoSize = True
-        Me.metal.Location = New System.Drawing.Point(614, 174)
+        Me.metal.Location = New System.Drawing.Point(607, 269)
         Me.metal.Name = "metal"
         Me.metal.Size = New System.Drawing.Size(70, 23)
         Me.metal.TabIndex = 39
@@ -558,7 +551,7 @@ Partial Class pna
         'elemento
         '
         Me.elemento.AutoSize = True
-        Me.elemento.Location = New System.Drawing.Point(419, 254)
+        Me.elemento.Location = New System.Drawing.Point(412, 349)
         Me.elemento.Name = "elemento"
         Me.elemento.Size = New System.Drawing.Size(107, 23)
         Me.elemento.TabIndex = 37
@@ -567,7 +560,7 @@ Partial Class pna
         'planeta
         '
         Me.planeta.AutoSize = True
-        Me.planeta.Location = New System.Drawing.Point(419, 174)
+        Me.planeta.Location = New System.Drawing.Point(412, 269)
         Me.planeta.Name = "planeta"
         Me.planeta.Size = New System.Drawing.Size(93, 23)
         Me.planeta.TabIndex = 35
@@ -576,7 +569,7 @@ Partial Class pna
         'chino
         '
         Me.chino.AutoSize = True
-        Me.chino.Location = New System.Drawing.Point(187, 164)
+        Me.chino.Location = New System.Drawing.Point(180, 259)
         Me.chino.Name = "chino"
         Me.chino.Size = New System.Drawing.Size(78, 23)
         Me.chino.TabIndex = 33
@@ -585,7 +578,7 @@ Partial Class pna
         'griego
         '
         Me.griego.AutoSize = True
-        Me.griego.Location = New System.Drawing.Point(28, 164)
+        Me.griego.Location = New System.Drawing.Point(21, 259)
         Me.griego.Name = "griego"
         Me.griego.Size = New System.Drawing.Size(89, 23)
         Me.griego.TabIndex = 31
@@ -594,7 +587,7 @@ Partial Class pna
         'gestacion
         '
         Me.gestacion.AutoSize = True
-        Me.gestacion.Location = New System.Drawing.Point(797, 53)
+        Me.gestacion.Location = New System.Drawing.Point(11, 117)
         Me.gestacion.Name = "gestacion"
         Me.gestacion.Size = New System.Drawing.Size(154, 69)
         Me.gestacion.TabIndex = 29
@@ -604,7 +597,7 @@ Partial Class pna
         'rfc
         '
         Me.rfc.AutoSize = True
-        Me.rfc.Location = New System.Drawing.Point(429, 103)
+        Me.rfc.Location = New System.Drawing.Point(416, 210)
         Me.rfc.Name = "rfc"
         Me.rfc.Size = New System.Drawing.Size(48, 23)
         Me.rfc.TabIndex = 27
@@ -624,7 +617,7 @@ Partial Class pna
         'curp
         '
         Me.curp.AutoSize = True
-        Me.curp.Location = New System.Drawing.Point(38, 103)
+        Me.curp.Location = New System.Drawing.Point(25, 210)
         Me.curp.Name = "curp"
         Me.curp.Size = New System.Drawing.Size(62, 23)
         Me.curp.TabIndex = 25
@@ -635,12 +628,12 @@ Partial Class pna
         Me.Btnobtener.BackColor = System.Drawing.SystemColors.Desktop
         Me.Btnobtener.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Btnobtener.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Btnobtener.Location = New System.Drawing.Point(1109, 156)
+        Me.Btnobtener.Location = New System.Drawing.Point(1058, 117)
         Me.Btnobtener.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Btnobtener.Name = "Btnobtener"
-        Me.Btnobtener.Size = New System.Drawing.Size(141, 48)
+        Me.Btnobtener.Size = New System.Drawing.Size(178, 51)
         Me.Btnobtener.TabIndex = 2
-        Me.Btnobtener.Text = "OBTENER"
+        Me.Btnobtener.Text = "PROCEDER"
         Me.Btnobtener.UseVisualStyleBackColor = False
         '
         'Btnsalir
@@ -648,10 +641,10 @@ Partial Class pna
         Me.Btnsalir.BackColor = System.Drawing.SystemColors.Desktop
         Me.Btnsalir.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Btnsalir.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Btnsalir.Location = New System.Drawing.Point(1109, 225)
+        Me.Btnsalir.Location = New System.Drawing.Point(1058, 302)
         Me.Btnsalir.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Btnsalir.Name = "Btnsalir"
-        Me.Btnsalir.Size = New System.Drawing.Size(141, 48)
+        Me.Btnsalir.Size = New System.Drawing.Size(178, 47)
         Me.Btnsalir.TabIndex = 3
         Me.Btnsalir.Text = "SALIR"
         Me.Btnsalir.UseVisualStyleBackColor = False
@@ -670,22 +663,58 @@ Partial Class pna
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(1015, 89)
+        Me.Label2.Location = New System.Drawing.Point(1015, 125)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(150, 23)
         Me.Label2.TabIndex = 6
         Me.Label2.Text = "HORA ACTUAL"
+        '
+        'TextFechaActual
+        '
+        Me.TextFechaActual.Enabled = False
+        Me.TextFechaActual.Location = New System.Drawing.Point(1019, 74)
+        Me.TextFechaActual.Name = "TextFechaActual"
+        Me.TextFechaActual.Size = New System.Drawing.Size(241, 24)
+        Me.TextFechaActual.TabIndex = 7
+        Me.TextFechaActual.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'TextHoraActual
+        '
+        Me.TextHoraActual.Enabled = False
+        Me.TextHoraActual.Location = New System.Drawing.Point(1019, 157)
+        Me.TextHoraActual.Name = "TextHoraActual"
+        Me.TextHoraActual.Size = New System.Drawing.Size(241, 24)
+        Me.TextHoraActual.TabIndex = 8
+        Me.TextHoraActual.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.SystemColors.Desktop
+        Me.Button1.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Button1.Location = New System.Drawing.Point(1058, 210)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(178, 47)
+        Me.Button1.TabIndex = 62
+        Me.Button1.Text = "LIMPIAR"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
+        Me.Timer1.Interval = 1000
         '
         'pna
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 19.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Window
-        Me.ClientSize = New System.Drawing.Size(1346, 647)
+        Me.ClientSize = New System.Drawing.Size(1346, 763)
+        Me.Controls.Add(Me.TextHoraActual)
+        Me.Controls.Add(Me.TextFechaActual)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.lbl_fechactual)
-        Me.Controls.Add(Me.Btnsalir)
-        Me.Controls.Add(Me.Btnobtener)
         Me.Controls.Add(Me.GroupBoxResultados)
         Me.Controls.Add(Me.GroupBoxDatosPersonales)
         Me.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -729,7 +758,6 @@ Partial Class pna
     Friend WithEvents apellidomaterno As System.Windows.Forms.Label
     Friend WithEvents PictureBoxchino As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBoxgriego As System.Windows.Forms.PictureBox
-    Friend WithEvents Btnlimpiar As System.Windows.Forms.Button
     Friend WithEvents Label23 As System.Windows.Forms.Label
     Friend WithEvents flor As System.Windows.Forms.Label
     Friend WithEvents piedra As System.Windows.Forms.Label
@@ -757,6 +785,9 @@ Partial Class pna
     Friend WithEvents lbl_planeta As System.Windows.Forms.Label
     Friend WithEvents lbl_gestacion As System.Windows.Forms.Label
     Friend WithEvents lbl_fechactual As System.Windows.Forms.Label
-    Friend WithEvents Label2 As System.Windows.Forms.Label
-
+    Friend WithEvents Label2 As Label
+    Friend WithEvents TextFechaActual As TextBox
+    Friend WithEvents TextHoraActual As TextBox
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Timer1 As Timer
 End Class
