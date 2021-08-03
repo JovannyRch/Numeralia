@@ -117,6 +117,78 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buey.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\caballo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cabra.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cerdo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\conejo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dragon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gallo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mono.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\perro.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rata.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\serpiente.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tigre.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\acuario.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\aries.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancer.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\capricornio.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\escorpio.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\geminis.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\leo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\libra.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pisis.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sagitario.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tauro.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\virgo.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

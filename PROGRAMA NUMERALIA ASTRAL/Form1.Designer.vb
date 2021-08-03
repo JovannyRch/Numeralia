@@ -48,11 +48,14 @@ Partial Class pna
         Me.Txtapaterno = New System.Windows.Forms.TextBox()
         Me.apellidopaterno = New System.Windows.Forms.Label()
         Me.GroupBoxResultados = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.lbl_chino = New System.Windows.Forms.Label()
         Me.lbl_griego = New System.Windows.Forms.Label()
         Me.lbl_numastral = New System.Windows.Forms.Label()
         Me.lbl_flor = New System.Windows.Forms.Label()
+        Me.Btnsalir = New System.Windows.Forms.Button()
         Me.lbl_piedra = New System.Windows.Forms.Label()
+        Me.Btnobtener = New System.Windows.Forms.Button()
         Me.lbl_metal = New System.Windows.Forms.Label()
         Me.lbl_elemento = New System.Windows.Forms.Label()
         Me.lbl_planeta = New System.Windows.Forms.Label()
@@ -74,13 +77,10 @@ Partial Class pna
         Me.rfc = New System.Windows.Forms.Label()
         Me.edad = New System.Windows.Forms.Label()
         Me.curp = New System.Windows.Forms.Label()
-        Me.Btnobtener = New System.Windows.Forms.Button()
-        Me.Btnsalir = New System.Windows.Forms.Button()
         Me.lbl_fechactual = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TextFechaActual = New System.Windows.Forms.TextBox()
         Me.TextHoraActual = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.GroupBoxDatosPersonales.SuspendLayout()
         Me.GroupBoxResultados.SuspendLayout()
@@ -126,13 +126,13 @@ Partial Class pna
         'CmbBoxlugar
         '
         Me.CmbBoxlugar.FormattingEnabled = True
-        Me.CmbBoxlugar.Items.AddRange(New Object() {"Aguascalientes(AG) ", "Baja California(BC)", "Baja California Sur(BS)", "Campeche(CM)", "Chiapas(CS) ", "Chihuahua(CH) ", "Coahuila (CO) ", "Colima (CL) ", "Ciudad de México(CX) ", "Durango(DG) ", "Guanajuato(GT) ", "Guerrero (GR) ", "Hidalgo(HG) ", "Jalisco(JC ", "Estado de México(ME)", "Michoacán(MN) ", "Morelos(MS)", "Nayarit(NT) ", "Nuevo León(NL) ", "Oaxaca(OC) ", "Puebla(PL) ", "Querétaro(QO) ", "Quintana Roo(QR) ", "San Luis Potosí(SP) ", "Sinaloa(SL) ", "Sonora(SR) ", "Tabasco (TC) ", "Tamaulipas(TS)", "Tlaxcala (TL) ", "Veracruz (VZ) ", "Yucatán (YN)", "Zacatecas(ZS)"})
+        Me.CmbBoxlugar.Items.AddRange(New Object() {"Aguascalientes(AG)", "Baja California(BC)", "Baja California Sur(BS)", "Campeche(MC)", "Chiapas(CS)", "Chihuahua(CH) ", "Coahuila (CO)", "Colima (CL)", "Ciudad de México(DF)", "Durango(DG)", "Guanajuato(GT)", "Guerrero (GR)", "Hidalgo(HG)", "Jalisco(JC)", "Estado de México(CM)", "Michoacán(MN)", "Morelos(MS)", "Nayarit(NT)", "Nuevo León(NL)", "Oaxaca(OC)", "Puebla(PL)", "Querétaro(QO)", "Quintana Roo(QR)", "San Luis Potosí(SP)", "Sinaloa(SL)", "Sonora(SR)", "Tabasco (TC)", "Tamaulipas(TS)", "Tlaxcala (TL)", "Veracruz (VZ)", "Yucatán (YN)", "Zacatecas(ZS)"})
         Me.CmbBoxlugar.Location = New System.Drawing.Point(617, 186)
         Me.CmbBoxlugar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.CmbBoxlugar.Name = "CmbBoxlugar"
         Me.CmbBoxlugar.Size = New System.Drawing.Size(273, 31)
         Me.CmbBoxlugar.TabIndex = 22
-        Me.CmbBoxlugar.Text = "Estado de México(ME)"
+        Me.CmbBoxlugar.Text = "Estado de México(MC)"
         '
         'lugar
         '
@@ -146,24 +146,24 @@ Partial Class pna
         'RdioBtnmasculino
         '
         Me.RdioBtnmasculino.AutoSize = True
-        Me.RdioBtnmasculino.Checked = True
         Me.RdioBtnmasculino.Location = New System.Drawing.Point(618, 106)
         Me.RdioBtnmasculino.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.RdioBtnmasculino.Name = "RdioBtnmasculino"
         Me.RdioBtnmasculino.Size = New System.Drawing.Size(131, 27)
         Me.RdioBtnmasculino.TabIndex = 20
-        Me.RdioBtnmasculino.TabStop = True
         Me.RdioBtnmasculino.Text = "Masculino"
         Me.RdioBtnmasculino.UseVisualStyleBackColor = True
         '
         'RdioBtnfemenino
         '
         Me.RdioBtnfemenino.AutoSize = True
+        Me.RdioBtnfemenino.Checked = True
         Me.RdioBtnfemenino.Location = New System.Drawing.Point(618, 71)
         Me.RdioBtnfemenino.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.RdioBtnfemenino.Name = "RdioBtnfemenino"
         Me.RdioBtnfemenino.Size = New System.Drawing.Size(128, 27)
         Me.RdioBtnfemenino.TabIndex = 19
+        Me.RdioBtnfemenino.TabStop = True
         Me.RdioBtnfemenino.Text = "Femenino"
         Me.RdioBtnfemenino.UseVisualStyleBackColor = True
         '
@@ -192,7 +192,7 @@ Partial Class pna
         Me.Txthora.Name = "Txthora"
         Me.Txthora.Size = New System.Drawing.Size(41, 32)
         Me.Txthora.TabIndex = 16
-        Me.Txthora.Text = "06"
+        Me.Txthora.Text = "00"
         '
         'min
         '
@@ -228,7 +228,7 @@ Partial Class pna
         Me.Txtaño.Name = "Txtaño"
         Me.Txtaño.Size = New System.Drawing.Size(66, 32)
         Me.Txtaño.TabIndex = 12
-        Me.Txtaño.Text = "1995"
+        Me.Txtaño.Text = "2000"
         '
         'CmbBoxmes
         '
@@ -239,7 +239,7 @@ Partial Class pna
         Me.CmbBoxmes.Name = "CmbBoxmes"
         Me.CmbBoxmes.Size = New System.Drawing.Size(50, 31)
         Me.CmbBoxmes.TabIndex = 11
-        Me.CmbBoxmes.Text = "04"
+        Me.CmbBoxmes.Text = "01"
         '
         'CmbBoxdia
         '
@@ -250,7 +250,7 @@ Partial Class pna
         Me.CmbBoxdia.Name = "CmbBoxdia"
         Me.CmbBoxdia.Size = New System.Drawing.Size(55, 31)
         Me.CmbBoxdia.TabIndex = 10
-        Me.CmbBoxdia.Text = "29"
+        Me.CmbBoxdia.Text = "01"
         '
         'aaaa
         '
@@ -290,17 +290,16 @@ Partial Class pna
         '
         'Txtnombre
         '
-        Me.Txtnombre.Location = New System.Drawing.Point(42, 182)
+        Me.Txtnombre.Location = New System.Drawing.Point(42, 185)
         Me.Txtnombre.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Txtnombre.Name = "Txtnombre"
         Me.Txtnombre.Size = New System.Drawing.Size(264, 32)
         Me.Txtnombre.TabIndex = 5
-        Me.Txtnombre.Text = "Jovanny"
         '
         'nombre
         '
         Me.nombre.AutoSize = True
-        Me.nombre.Location = New System.Drawing.Point(38, 155)
+        Me.nombre.Location = New System.Drawing.Point(38, 158)
         Me.nombre.Name = "nombre"
         Me.nombre.Size = New System.Drawing.Size(120, 23)
         Me.nombre.TabIndex = 4
@@ -314,7 +313,6 @@ Partial Class pna
         Me.Txtamaterno.Name = "Txtamaterno"
         Me.Txtamaterno.Size = New System.Drawing.Size(264, 32)
         Me.Txtamaterno.TabIndex = 3
-        Me.Txtamaterno.Text = "Chimal"
         '
         'apellidomaterno
         '
@@ -333,7 +331,6 @@ Partial Class pna
         Me.Txtapaterno.Name = "Txtapaterno"
         Me.Txtapaterno.Size = New System.Drawing.Size(264, 32)
         Me.Txtapaterno.TabIndex = 1
-        Me.Txtapaterno.Text = "Ramírez"
         '
         'apellidopaterno
         '
@@ -385,6 +382,19 @@ Partial Class pna
         Me.GroupBoxResultados.TabStop = False
         Me.GroupBoxResultados.Text = "RESULTADOS"
         '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.SystemColors.Desktop
+        Me.Button1.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Button1.Location = New System.Drawing.Point(1058, 210)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(178, 47)
+        Me.Button1.TabIndex = 62
+        Me.Button1.Text = "LIMPIAR"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
         'lbl_chino
         '
         Me.lbl_chino.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -421,6 +431,19 @@ Partial Class pna
         Me.lbl_flor.Size = New System.Drawing.Size(150, 30)
         Me.lbl_flor.TabIndex = 58
         '
+        'Btnsalir
+        '
+        Me.Btnsalir.BackColor = System.Drawing.SystemColors.Desktop
+        Me.Btnsalir.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btnsalir.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Btnsalir.Location = New System.Drawing.Point(1058, 302)
+        Me.Btnsalir.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.Btnsalir.Name = "Btnsalir"
+        Me.Btnsalir.Size = New System.Drawing.Size(178, 47)
+        Me.Btnsalir.TabIndex = 3
+        Me.Btnsalir.Text = "SALIR"
+        Me.Btnsalir.UseVisualStyleBackColor = False
+        '
         'lbl_piedra
         '
         Me.lbl_piedra.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -429,6 +452,19 @@ Partial Class pna
         Me.lbl_piedra.Name = "lbl_piedra"
         Me.lbl_piedra.Size = New System.Drawing.Size(150, 30)
         Me.lbl_piedra.TabIndex = 57
+        '
+        'Btnobtener
+        '
+        Me.Btnobtener.BackColor = System.Drawing.SystemColors.Desktop
+        Me.Btnobtener.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btnobtener.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Btnobtener.Location = New System.Drawing.Point(1058, 117)
+        Me.Btnobtener.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.Btnobtener.Name = "Btnobtener"
+        Me.Btnobtener.Size = New System.Drawing.Size(178, 51)
+        Me.Btnobtener.TabIndex = 2
+        Me.Btnobtener.Text = "PROCEDER"
+        Me.Btnobtener.UseVisualStyleBackColor = False
         '
         'lbl_metal
         '
@@ -623,32 +659,6 @@ Partial Class pna
         Me.curp.TabIndex = 25
         Me.curp.Text = "CURP"
         '
-        'Btnobtener
-        '
-        Me.Btnobtener.BackColor = System.Drawing.SystemColors.Desktop
-        Me.Btnobtener.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btnobtener.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Btnobtener.Location = New System.Drawing.Point(1058, 117)
-        Me.Btnobtener.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Btnobtener.Name = "Btnobtener"
-        Me.Btnobtener.Size = New System.Drawing.Size(178, 51)
-        Me.Btnobtener.TabIndex = 2
-        Me.Btnobtener.Text = "PROCEDER"
-        Me.Btnobtener.UseVisualStyleBackColor = False
-        '
-        'Btnsalir
-        '
-        Me.Btnsalir.BackColor = System.Drawing.SystemColors.Desktop
-        Me.Btnsalir.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btnsalir.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Btnsalir.Location = New System.Drawing.Point(1058, 302)
-        Me.Btnsalir.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Btnsalir.Name = "Btnsalir"
-        Me.Btnsalir.Size = New System.Drawing.Size(178, 47)
-        Me.Btnsalir.TabIndex = 3
-        Me.Btnsalir.Text = "SALIR"
-        Me.Btnsalir.UseVisualStyleBackColor = False
-        '
         'lbl_fechactual
         '
         Me.lbl_fechactual.AutoSize = True
@@ -686,19 +696,6 @@ Partial Class pna
         Me.TextHoraActual.Size = New System.Drawing.Size(241, 24)
         Me.TextHoraActual.TabIndex = 8
         Me.TextHoraActual.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.SystemColors.Desktop
-        Me.Button1.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Button1.Location = New System.Drawing.Point(1058, 210)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(178, 47)
-        Me.Button1.TabIndex = 62
-        Me.Button1.Text = "LIMPIAR"
-        Me.Button1.UseVisualStyleBackColor = False
         '
         'Timer1
         '
