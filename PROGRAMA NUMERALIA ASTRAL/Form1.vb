@@ -37,6 +37,9 @@ Public Class pna
         lbl_elemento.Text = ""
         lbl_piedra.Text = ""
         lbl_numastral.Text = ""
+        PictureBoxgriego.Visible = False
+        PictureBoxchino.Visible = False
+
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
@@ -53,7 +56,7 @@ Public Class pna
 
 
 
-    Private Sub CalcularTiempoVivido()
+    Private Sub obtenerResultados()
 
 
         PictureBoxgriego.SizeMode = PictureBoxSizeMode.StretchImage
@@ -61,6 +64,9 @@ Public Class pna
         Txtamaterno.Text = UCase(Txtamaterno.Text)
         Txtapaterno.Text = UCase(Txtapaterno.Text)
         Txtnombre.Text = UCase(Txtnombre.Text)
+
+        PictureBoxgriego.Visible = True
+        PictureBoxchino.Visible = True
 
         PictureBoxgriego.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBoxchino.SizeMode = PictureBoxSizeMode.StretchImage
@@ -70,6 +76,15 @@ Public Class pna
         aMaterno = Txtamaterno.Text
         aPaterno = Txtapaterno.Text
         nombres = Txtnombre.Text
+
+
+
+        'Validaciones de datos de entrada
+
+        If aMaterno.Trim().Length = 0 Or aPaterno.Trim().Length = 0 Or nombres.Trim().Length = 0 Then
+            MsgBox("Datos incompletos", 0 + 32 + 0, "Aviso")
+            Return
+        End If
 
         diaNacimiento = Val(CmbBoxdia.Text)
         mesNacimiento = Val(CmbBoxmes.Text)
@@ -94,6 +109,9 @@ Public Class pna
 
         'Fin de la obtencion de datos
 
+
+
+
         'Validacion de la fecha de nacimiento
 
         Dim valido As Boolean
@@ -112,7 +130,7 @@ Public Class pna
 
         obtenerSignos(mesNacimiento, diaNacimiento)
 
-        calcularNumeroAstral(diaNacimiento.ToString(), mesNacimiento.ToString(), anioNacimiento.ToString())
+        calcularNumeroAstral(diaNacimiento.ToString(), mesNacimiento.ToString(), anioNacimiento.ToString(), nombres, aPaterno, aMaterno)
 
         obtenerSignoChino(anioNacimiento)
 
@@ -137,6 +155,14 @@ Public Class pna
 
         If nombres.Contains("JOSÉ ") Then
             nombres = nombres.Replace("JOSÉ ", "")
+        End If
+
+        If nombres.Contains("MARIA ") Then
+            nombres = nombres.Replace("MARIA ", "")
+        End If
+
+        If nombres.Contains("JOSE ") Then
+            nombres = nombres.Replace("JOSE ", "")
         End If
 
 
@@ -213,7 +239,7 @@ Public Class pna
         ElseIf (mes = 9 And dia >= 23) Or (mes = 10 And dia <= 22) Then
             setLabels("Libra", "Aire", "Agáta gris", "Ciruelo", "Rosa", "Venus", "Cobre")
             PictureBoxgriego.Image = My.Resources.libra
-        ElseIf (mes = 10 And dia >= 23) Or (mes = 11 And dia <= 22) Then
+        ElseIf (mes = 10 And dia >= 23) Or (mes = 11 And dia <= 21) Then
             setLabels("Escorpio", "Agua", "Esmeralda", "Higuera", "Rojo", "Marte y Plúton", "Jaspe sardo")
             PictureBoxgriego.Image = My.Resources.escorpio
         ElseIf (mes = 11 And dia >= 22) Or (mes = 12 And dia <= 21) Then
@@ -241,7 +267,7 @@ Public Class pna
     End Sub
 
     Private Sub Btnobtener_Click(sender As Object, e As EventArgs) Handles Btnobtener.Click
-
+        obtenerResultados()
     End Sub
 
     Private Sub obtenerSignoChino(anio As Integer)
@@ -286,21 +312,53 @@ Public Class pna
         End If
     End Sub
 
-    Private Sub calcularNumeroAstral(dia As String, mes As String, anio As String)
-        Dim numero As String
-        Dim anioAux, suma As Integer
 
-        If Val(anio) < 2000 Then
-            anioAux = sumarNumeros(anio)
-        Else
-            anioAux = Val(Strings.Left(anio, 2)) + Val(Strings.Right(anio, 2))
+    Private Function numeroAstralPorLetra(letra As String) As Integer
+        Dim l As String
+        l = normalizarLetra(letra)
+        If "AJS".Contains(l) Then
+            Return 1
+        ElseIf "BKT".Contains(l) Then
+            Return 2
+        ElseIf "CLU".Contains(l) Then
+            Return 3
+        ElseIf "DMV".Contains(l) Then
+            Return 4
+        ElseIf "ENW".Contains(l) Then
+            Return 5
+        ElseIf "FOX".Contains(l) Then
+            Return 6
+        ElseIf "GPY".Contains(l) Then
+            Return 7
+        ElseIf "HQZ".Contains(l) Then
+            Return 8
+        ElseIf "IR".Contains(l) Then
+            Return 9
         End If
 
-        suma = Val(dia) + Val(mes) + Val(anioAux)
-        Console.WriteLine(suma)
+        Return 0
+    End Function
+
+    Private Function sumaAstralPalabra(palabra As String) As Integer
+        Dim suma As String = 0
+        Dim letra As String
+        For i = 1 To Len(palabra)
+            letra = Strings.GetChar(palabra, i)
+            suma += numeroAstralPorLetra(letra)
+        Next i
+
+        Return suma
+    End Function
+
+    Private Sub calcularNumeroAstral(dia As String, mes As String, anio As String, nombres As String, paterno As String, materno As String)
+        Dim numero As String
+        Dim suma As Integer
+
+
+
+        suma = sumaAstralPalabra(nombres) + sumaAstralPalabra(paterno) + sumaAstralPalabra(materno) + sumarNumeros(dia) + sumarNumeros(mes) + sumarNumeros(anio)
         While suma.ToString().Length <> 1
             suma = sumarNumeros(suma)
-            Console.WriteLine(suma)
         End While
 
 
