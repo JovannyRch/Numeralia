@@ -82,6 +82,8 @@ Partial Class pna
         Me.TextFechaActual = New System.Windows.Forms.TextBox()
         Me.TextHoraActual = New System.Windows.Forms.TextBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.lbl_color = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBoxDatosPersonales.SuspendLayout()
         Me.GroupBoxResultados.SuspendLayout()
         CType(Me.PictureBoxchino, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -343,6 +345,8 @@ Partial Class pna
         '
         'GroupBoxResultados
         '
+        Me.GroupBoxResultados.Controls.Add(Me.lbl_color)
+        Me.GroupBoxResultados.Controls.Add(Me.Label3)
         Me.GroupBoxResultados.Controls.Add(Me.Button1)
         Me.GroupBoxResultados.Controls.Add(Me.lbl_chino)
         Me.GroupBoxResultados.Controls.Add(Me.lbl_griego)
@@ -702,6 +706,24 @@ Partial Class pna
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
         '
+        'lbl_color
+        '
+        Me.lbl_color.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.lbl_color.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.lbl_color.Location = New System.Drawing.Point(991, 421)
+        Me.lbl_color.Name = "lbl_color"
+        Me.lbl_color.Size = New System.Drawing.Size(150, 30)
+        Me.lbl_color.TabIndex = 64
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(988, 388)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(81, 23)
+        Me.Label3.TabIndex = 63
+        Me.Label3.Text = "COLOR"
+        '
         'pna
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 19.0!)
@@ -787,4 +809,6 @@ Partial Class pna
     Friend WithEvents TextHoraActual As TextBox
     Friend WithEvents Button1 As Button
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents lbl_color As Label
+    Friend WithEvents Label3 As Label
 End Class

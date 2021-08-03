@@ -37,6 +37,7 @@ Public Class pna
         lbl_elemento.Text = ""
         lbl_piedra.Text = ""
         lbl_numastral.Text = ""
+        lbl_color.Text = ""
         PictureBoxgriego.Visible = False
         PictureBoxchino.Visible = False
 
@@ -57,12 +58,6 @@ Public Class pna
 
 
     Private Sub obtenerResultados()
-
-        'Test
-        Txtamaterno.Text = "illescas"
-        Txtapaterno.Text = "franco"
-        Txtnombre.Text = "william"
-
         PictureBoxgriego.SizeMode = PictureBoxSizeMode.StretchImage
 
         Txtamaterno.Text = UCase(Txtamaterno.Text)
@@ -102,19 +97,6 @@ Public Class pna
         anioActual = Val(Strings.Right(TextFechaActual.Text, 4))
         horaActual = Val(Strings.Left(TextHoraActual.Text, 2))
         minActual = Val(Strings.Mid(TextHoraActual.Text, 4, 2))
-
-        diaNacimiento = 3
-        mesNacimiento = 2
-        anioNacimiento = 1902
-        horaNacimiento = 3
-        minutoNacimiento = 3
-
-        diaActual = 27
-        mesActual = 7
-        anioActual = 2021
-        horaActual = 11
-        minActual = 37
-
 
         If RdioBtnfemenino.Checked Then
             generoValue = "M"
@@ -180,6 +162,19 @@ Public Class pna
 
         If nombres.Contains("JOSE ") Then
             nombres = nombres.Replace("JOSE ", "")
+        End If
+
+
+        If nombres.Contains("DE LOS ") Then
+            nombres = nombres.Replace("DE LOS ", "")
+        End If
+
+        If nombres.Contains("DEL ") Then
+            nombres = nombres.Replace("DEL ", "")
+        End If
+
+        If nombres.Contains("DE ") Then
+            nombres = nombres.Replace("DE ", "")
         End If
 
 
@@ -281,6 +276,7 @@ Public Class pna
         lbl_flor.Text = flor
         lbl_planeta.Text = planeta
         lbl_metal.Text = metal
+        lbl_color.Text = color
     End Sub
 
     Private Sub Btnobtener_Click(sender As Object, e As EventArgs) Handles Btnobtener.Click
