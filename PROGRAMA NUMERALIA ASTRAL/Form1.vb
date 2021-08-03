@@ -58,6 +58,10 @@ Public Class pna
 
     Private Sub obtenerResultados()
 
+        'Test
+        Txtamaterno.Text = "illescas"
+        Txtapaterno.Text = "franco"
+        Txtnombre.Text = "william"
 
         PictureBoxgriego.SizeMode = PictureBoxSizeMode.StretchImage
 
@@ -72,6 +76,7 @@ Public Class pna
         PictureBoxchino.SizeMode = PictureBoxSizeMode.StretchImage
 
         'Obtención de datos del formulario
+
 
         aMaterno = Txtamaterno.Text
         aPaterno = Txtapaterno.Text
@@ -97,6 +102,18 @@ Public Class pna
         anioActual = Val(Strings.Right(TextFechaActual.Text, 4))
         horaActual = Val(Strings.Left(TextHoraActual.Text, 2))
         minActual = Val(Strings.Mid(TextHoraActual.Text, 4, 2))
+
+        diaNacimiento = 3
+        mesNacimiento = 2
+        anioNacimiento = 1902
+        horaNacimiento = 3
+        minutoNacimiento = 3
+
+        diaActual = 27
+        mesActual = 7
+        anioActual = 2021
+        horaActual = 11
+        minActual = 37
 
 
         If RdioBtnfemenino.Checked Then
@@ -249,7 +266,7 @@ Public Class pna
             setLabels("Capricornio", "Tierro", "Onix Negro", "Loto", "Negro", "Saturno", "Plomo")
             PictureBoxgriego.Image = My.Resources.capricornio
         ElseIf (mes = 1 And dia >= 20) Or (mes = 2 And dia <= 18) Then
-            setLabels("Acuario", "Aire", "Zafiro", "Tulipán", "Verde", "Urano", "Aluminio")
+            setLabels("Acuario", "Aire", "Zafiro", "Vellorita", "Verde", "Urano", "Aluminio")
             PictureBoxgriego.Image = My.Resources.acuario
         ElseIf (mes = 2 And dia >= 19) Or (mes = 3 And dia <= 20) Then
             setLabels("Piscis", "Agua", "Amatista", "Violeta", "Violeta", "Neptuno", "Estaño")
@@ -375,30 +392,44 @@ Public Class pna
     End Function
 
 
-    Private Function calcularEdad(minutoNacimiento As Integer, horaNacimiento As Integer, diaNacimiento As Integer, mesNacimiento As Integer, anioNacimiento As Integer, minActual As Integer, horaActual As Integer, diaActual As Integer, mesActual As Integer, anioActual As Integer)
-        Dim minutosVividos As Integer
-        minutosVividos = calcularMinutosVividos(minutoNacimiento, horaNacimiento, diaNacimiento, mesNacimiento, anioNacimiento, minActual, horaActual, diaActual, mesActual, anioActual)
+    Private Sub calcularEdad(minutoNacimiento As Integer, horaNacimiento As Integer, diaNacimiento As Integer, mesNacimiento As Integer, anioNacimiento As Integer, minActual As Integer, horaActual As Integer, diaActual As Integer, mesActual As Integer, anioActual As Integer)
 
-        Dim anios, meses, semanas, dias, horas, minutos As Integer
+        Dim anios, meses, dias, horas, semanas, minutos As Integer
 
-        anios = Math.Truncate(minutosVividos / 525600)
-        minutosVividos = minutosVividos Mod 525600
+        anios = anioActual - anioNacimiento
+        meses = mesActual - mesNacimiento
+        dias = diaActual - diaNacimiento
+        horas = horaActual - horaNacimiento
+        minutos = minActual - minutoNacimiento
 
-        meses = Math.Truncate(minutosVividos / 44640)
-        minutosVividos = minutosVividos Mod 44640
+        If minutos < 0 Then
+            minutos += 60
+            horas -= 1
+        End If
 
-        semanas = Math.Truncate(minutosVividos / 10080)
-        minutosVividos = minutosVividos Mod 10080
+        If horas < 0 Then
+            horas += 24
+            dias -= 1
+        End If
 
-        dias = Math.Truncate(minutosVividos / 1440)
-        minutosVividos = minutosVividos Mod 1440
+        If dias < 0 Then
+            dias += 30
+            meses -= 1
+        End If
 
-        horas = Math.Truncate(minutosVividos / 60)
-        minutosVividos = minutosVividos Mod 60
-        minutos = minutosVividos
-        lbl_edad.Text = anios.ToString() + " anio(s), " + meses.ToString() + " mes(es), " + semanas.ToString() + " semana(s), " + dias.ToString() + " dia(s), " + horas.ToString() + " hora(s) " + minutos.ToString() + " minutos(s)"
 
-    End Function
+        If meses < 0 Then
+            meses += 12
+            anios -= 1
+        End If
+
+        semanas = Math.Truncate(dias / 7)
+        dias = dias Mod 7
+
+        lbl_edad.Text = anios.ToString() + " anio(s), " + meses.ToString() + " mes(es), " + semanas.ToString() + " semana(s), " + dias.ToString() + " dia(s), " + horas.ToString() + " hora(s) y " + minutos.ToString() + " minutos(s)"
+
+    End Sub
+
 
     Private Function calcularFechaGestacion(diaNac As Integer, mesNac As Integer, anioNac As Integer)
         Dim fecha As String
@@ -425,90 +456,6 @@ Public Class pna
         End If
         fecha = dia.ToString() + "/" + mes.ToString() + "/" + anio.ToString()
         lbl_gestacion.Text = fecha
-    End Function
-
-    Private Function calcularMinutosVividos(minutoNac As Integer, horaNac As Integer, diaNac As Integer, mesNac As Integer, anioNac As Integer, minActual As Integer, horaActual As Integer, diaActual As Integer, mesActual As Integer, anioActual As Integer) As Integer
-        Dim maxDias As Integer
-        Dim resultado As Integer
-        resultado = 0
-
-
-        While (minutoNac = minActual And horaActual = horaNac And diaNac = diaActual And mesActual = mesNac And anioActual = anioNac) = False
-
-            If anioNac < anioActual Then
-
-                If esAnioBiciesto(anioNac) Then
-                    resultado += DiasAMinutos(366)
-                Else
-                    resultado += DiasAMinutos(365)
-                End If
-                anioNac += 1
-            Else
-
-
-                If Math.Abs(mesNac - mesActual) > 0 Then
-
-                    If mesNac < mesActual Then
-                        For i = mesNac To mesActual - 1
-                            maxDias = obtenerDiasMes(i, anioNac)
-                            resultado += DiasAMinutos(maxDias)
-                        Next i
-                    Else
-                        For i = mesActual To mesNac - 1
-                            maxDias = obtenerDiasMes(i, anioNac)
-                            resultado -= DiasAMinutos(maxDias)
-                        Next i
-                    End If
-                    mesNac = mesActual
-
-                Else
-
-                    If Math.Abs(diaActual - diaNac) > 0 Then
-                        If diaActual < diaNac Then
-                            resultado -= DiasAMinutos(Math.Abs(diaActual - diaNac))
-                        Else
-                            resultado += DiasAMinutos(Math.Abs(diaActual - diaNac))
-
-                        End If
-                        diaNac = diaActual
-                    Else
-
-                        If Math.Abs(horaNac - horaActual) > 0 Then
-
-                            If horaNac < horaActual Then
-                                resultado += Math.Abs((horaActual - horaNac)) * 60
-                            Else
-                                resultado -= Math.Abs((horaActual - horaNac)) * 60
-                            End If
-                            horaNac = horaActual
-                        Else
-
-                            If minutoNac <= minActual Then
-                                resultado += Math.Abs(minActual - minutoNac)
-                            Else
-                                resultado -= Math.Abs(minActual - minutoNac)
-                            End If
-
-                            minutoNac = minActual
-                        End If
-
-                    End If
-
-
-                End If
-
-
-            End If
-
-
-
-
-        End While
-
-
-
-
-        Return resultado
     End Function
 
     Private Function DiasAMinutos(dias As Integer) As Integer
